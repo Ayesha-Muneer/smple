@@ -1,0 +1,51 @@
+{% extends 'AdminHome.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Flow Status</h4>
+                  <div class="table-responsive">
+                   <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1771038/widgets/497656"></iframe>
+                  <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1771038/maps/channel_show"></iframe>
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                           <td>{{a}}</td>
+                               <td>{{b}}</td>
+                               <td>{{c}}</td>
+<!--                          <th>ENDING TIME</th>-->
+<!--                          <th>Appointment</th>-->
+                        </tr>
+                      </thead>
+                      <tbody>
+<!--                      {% for a in appointment %}-->
+                        <tr>
+                          <td>{{a}}</td>
+                               <td>{{b}}</td>
+                               <td>{{c}}</td>
+
+<!--                           <td><img src="{{a.schedule.Photo.url}}" style="height : 100px; width : 100px"> </td>-->
+<!--                          <td>{{b}}</td>-->
+<!--                          <td>{{ a.schedule.date }}</td>-->
+<!--                          <td>{{ a.schedule.start_time }}</td>-->
+<!--                          <td>{{ a.schedule.end_time }}</td>-->
+<!--                          <td>-->
+<!--                              {% if a.status == 0 %}-->
+<!--                        <button type="button" class="btn btn-warning">Approval Pending</button>-->
+<!--                        {% elif a.status == 1 %}-->
+<!--                        <button type="button" class="btn btn-success">Appointment Confirmed</button>-->
+<!--                         {% else %}-->
+<!--                        <button type="button" class="btn btn-danger">Rejected</button>-->
+<!--                              {% endif %}-->
+<!--                          </td>-->
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{{% extends 'AdminHome.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="card mb-2">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Worker Registration</h6>
+                </div>
+                <div class="card-body">
+                  <form method="post" enctype="multipart/form-data">
+                      {%  csrf_token %}
+                    <div class="form-group">
+                        {{user_form|crispy}}
+                        {{login_form|crispy}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                  </form>
+                </div>
+              </div>
+{% endblock %}

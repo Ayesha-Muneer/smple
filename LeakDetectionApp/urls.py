@@ -1,0 +1,43 @@
+from django.urls import path
+from LeakDetectionApp import views
+
+urlpatterns = [
+   path('',views.Home, name='Home'),
+   path('login',views.login_view, name='login'),
+   path('AdminHome', views.Admin_Home, name='AdminHome'),
+   path('UserRegister',views.registerUser, name='UserRegister'),
+   path('UserHome', views.User_Home, name='UserHome'),
+   path('WorkerHome', views.Worker_Home, name='WorkerHome'),
+   path('ViewConsumer', views.View_consumer, name='ViewConsumer'),
+   path('ManageAppointment', views.ManageAppointment, name='ManageAppointment'),
+   path('WorkerRegister', views.registerWorker, name='WorkerRegister'),
+   path('ManageWorker', views.ManageWorker, name='ManageWorker'),
+   path('AssignWork', views.AssignWork, name='AssignWork'),
+   path('ConsumerProfile', views.ConsumerProfile, name='ConsumerProfile'),
+   path('WorkerProfile', views.WorkerProfile, name='WorkerProfile'),
+   path('Schedule', views.ScheduleWork, name='Schedule'),
+   path('ViewSchedule', views.ViewSchedule, name='ViewSchedule'),
+   path('ViewScheduleUser', views.ViewScheduleUser, name='ViewScheduleUser'),
+   path('AdminAppointmentView', views.AdminAppointmentView, name='AdminAppointmentView'),
+   path('take_appointment/<int:id>/', views.take_appointment, name='take_appointment'),
+   path('appointment_view', views.appointment_view, name='appointment_view'),
+
+   path('Complaint_add_user',views.Complaint_add_user,name='Complaint_add_user'),
+   path('Complaint_view_user',views.Complaint_view_user,name='Complaint_view_user'),
+   path('Complaint_admin',views.Complaint_admin,name='Complaint_admin'),
+   path('worker_update/<int:id>/',views.worker_update,name='worker_update'),
+   path('worker_delete/<int:id>/',views.worker_delete,name='worker_delete'),
+   path('view_schedule',views.view_schedule,name='view_schedule'),
+   path('edit_schedule/<int:id>/',views.edit_schedule,name='edit_schedule'),
+   path('remove_schedule/<int:id>/',views.remove_schedule,name='remove_schedule'),
+   path('edit_consumerprofile/<int:id>/',views.edit_consumerprofile,name='edit_consumerprofile'),
+   path('approve_appointment/<int:id>/',views.approve_appointment,name='approve_appointment'),
+   path('reject_appointment/<int:id>/',views.reject_appointment,name='reject_appointment'),
+   path('appointments_consumer',views.appointments_consumer,name='appointments_consumer'),
+   path('iotvalues',views.iotvalues,name='iotvalues'),
+   path('schedule_admin',views.schedule_admin,name='schedule_admin'),
+   path('reply_feedback/<int:id>/',views.reply_Feedback,name='reply_feedback'),
+   path('user_view_iot',views.user_view_iot,name='user_view_iot'),
+   path('worker_view_iot',views.worker_view_iot,name='worker_view_iot'),
+
+ ]

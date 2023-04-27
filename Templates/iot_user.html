@@ -1,0 +1,16 @@
+{% extends 'UserHome.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Flow Status</h4>
+                  <div class="table-responsive">
+                   <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1771038/widgets/497656"></iframe>
+                  <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1771038/maps/channel_show"></iframe>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

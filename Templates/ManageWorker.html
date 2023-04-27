@@ -1,0 +1,38 @@
+{% extends 'AdminHome.html' %}
+{% block content %}
+      <div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <div class="table-responsive p-3">
+                  <div id="dataTableHover_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTableHover_length"><label>Show <select name="dataTableHover_length" aria-controls="dataTableHover" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTableHover_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTableHover"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table align-items-center table-flush table-hover dataTable" id="dataTableHover" role="grid" aria-describedby="dataTableHover_info">
+                    <thead class="thead-light">
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 181.812px;">SL No.</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 285.6px;">Name</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 135.5px;">Location</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 53.525px;">Contact Number</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 118.475px;">Email-id</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 135.5px;">Photo</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 285.6px;">Update</th><th class="sorting" tabindex="0" aria-controls="dataTableHover" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 285.6px;">Delete</th></tr>
+                    </thead>
+                    <tfoot>
+                    {% for i in worker %}
+<!--                      <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th></tr>-->
+                    <tr>
+                      <td>{{forloop.counter}}</td>
+                      <td>{{i.Name}}</td>
+                      <td>{{i.Location}}</td>
+                      <td>{{i.Contact_Number}}</td>
+                      <td>{{i.Email}}</td>
+                        <td><img src="{{i.Photo.url}}" style="height : 100px; width : 100px"> </td>
+                        <td><a href="{% url 'worker_update' i.id %}" class="btn btn-sm btn-success">Update</a></td>
+                        <td><form action="{% url 'worker_delete' i.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    </tfoot>
+                    <tbody>
+                    </tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+              {% endblock %}

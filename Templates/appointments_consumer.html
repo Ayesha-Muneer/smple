@@ -1,0 +1,42 @@
+{% extends 'UserHome.html' %}
+{% block content %}
+<div class="col-sm-6 col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>SI No</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                        <tbody>
+                        {% for n in a %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{n.schedule.date}}</td>
+                            <td>{{n.schedule.start_time}}</td>
+                            <td>{{n.schedule.end_time}}</td>
+                            <td>
+                                {% if n.status == 0 %}
+                                <button type="button" class="btn btn-success">Appointment Pending</button>
+                                {% elif n.status == 1 %}
+                                <button type="button" class="btn btn-success">Appointment Confirmed</button>
+                                {% else %}
+                                <button type="button" class="btn btn-danger">Rejected</button>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

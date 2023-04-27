@@ -1,0 +1,46 @@
+{% extends 'WorkerHome.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-sm-6 col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>SI No</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Starting Time</th>
+                        <th>Ending Time</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                        <tbody>
+                        {% for i in s %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.worker}}</td>
+                            <td>{{i.date}}</td>
+                            <td>{{i.start_time}}</td>
+                            <td>{{i.end_time}}</td>
+                            <td>
+                                <a href="{% url 'edit_schedule' i.id %}" class="btn btn-success">Edit</a>
+                            </td>
+                            <td>
+                                <form action="{% url 'remove_schedule' i.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

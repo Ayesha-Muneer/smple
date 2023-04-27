@@ -1,0 +1,48 @@
+{% extends 'AdminHome.html' %}
+{% block content %}
+<div class="col-sm-6 col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>SI No</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th rowspan="2">Status</th>
+                    </tr>
+                    </thead>
+                        <tbody>
+                        {% for n in appointment %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{n.user}}</td>
+                            <td>{{n.schedule.date}}</td>
+                            <td>{{n.schedule.start_time}}</td>
+                            <td>{{n.schedule.end_time}}</td>
+                            <td>
+                                {% if n.status == 0 %}
+                                <a href="{% url 'approve_appointment' n.id %}" class="btn btn btn-success">Approve</a>
+                                <form action="{% url 'reject_appointment' n.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger">Reject</button>
+                                </form>
+                                {% elif n.status == 1 %}
+                                <button type="button" class="btn btn-success">Appointment Confirmed</button>
+                                {% else %}
+                                <button type="button" class="btn btn-danger">Rejected</button>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'UserHome.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-sm-6 col-md-8">
+    <div class="card">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-primary" href="{% url 'Complaint_add_user' %}" role="button">Add</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>SI No</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Complaint</th>
+                        <th>Date</th>
+                        <th>Reply</th>
+                    </tr>
+                    </thead>
+                        <tbody>
+                        {% for f in feedback %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{f.user}}</td>
+                            <td>{{f.subject}}</td>
+                            <td>{{f.feedback}}</td>
+                            <td>{{f.date}}</td>
+                            <td>
+                                {% if f.reply == None %}
+                                <p>No Reply Yet ...</p>
+                                {% else %}
+                                {{f.reply}}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

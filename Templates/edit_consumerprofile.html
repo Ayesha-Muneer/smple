@@ -1,0 +1,18 @@
+{% extends 'UserHome.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-sm-6 col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                {{user_form|crispy}}
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

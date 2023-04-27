@@ -1,0 +1,62 @@
+{% extends 'UserHome.html' %}
+{% block content %}
+<div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <div class="table-responsive p-3">
+                  <div id="dataTableHover_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                      <div class="row">
+                          <div class="col-sm-12 col-md-6">
+                          </div>
+                          </div>
+                  </div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <div class="col-lg-8">
+                                  <h1>Details</h1>
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Consumer Number</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{consumer.Consumer_number}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{consumer.Name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Mobile Number</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{consumer.Mobile_Number}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{consumer.Address}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+            <div class="d-flex justify-content-center mb-2">
+             <a href="{% url 'edit_consumerprofile' consumer.id %}" >
+              <button type="button"  class="btn btn-primary">Update</button>
+             </a>
+            </div>
+        </div>
+
+              {% endblock %}

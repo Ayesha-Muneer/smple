@@ -1,0 +1,16 @@
+{% extends 'UserHome.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">SCHEDULE</h6>
+                </div>
+                <div class="table-responsive">
+                   <form method="post">
+                      {%  csrf_token %}
+                    <div class="form-group">
+                        {{form|crispy}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Take Appointment</button>
+                  </form>
+                </div>
+{% endblock %}
